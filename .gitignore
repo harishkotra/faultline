@@ -1,0 +1,41 @@
+# Dependencies and package-manager state
+node_modules/
+**/node_modules/
+.npm/
+.pnpm-store/
+
+# Build and test outputs
+dist/
+**/dist/
+coverage/
+.cache/
+*.tsbuildinfo
+
+# Environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+
+# Local application state
+.workspaces/
+**/.workspaces/
+apps/preview/.expo/
+apps/preview/web-build/
+
+# Self-hosted SigNoz runtime/downloads
+infra/signoz/upstream/
+infra/signoz/data/
+infra/signoz/volumes/
+
+# Logs, OS, and editor files
+*.log
+logs/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~

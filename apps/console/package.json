@@ -1,0 +1,1 @@
+{"name":"@faultline/console","private":true,"type":"module","scripts":{"dev":"vite","build":"tsc --noEmit && vite build"},"dependencies":{"@vitejs/plugin-react":"latest","lucide-react":"^0.468.0","react":"latest","react-dom":"latest","vite":"latest"},"devDependencies":{"@types/react":"latest","@types/react-dom":"latest","typescript":"^5.3.3"}}

@@ -1,0 +1,8 @@
+# Start the pinned official SigNoz deployment first. This overlay documents runner settings.
+services:
+  faultline-runner:
+    build: ../../apps/runner
+    environment:
+      SIGNOZ_OTLP_ENDPOINT: http://signoz-otel-collector:4318
+      SIGNOZ_UI_URL: http://localhost:3301
+    ports: ["4310:4310"]

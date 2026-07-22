@@ -1,0 +1,1 @@
+{ "expo": { "name":"Faultline Preview", "slug":"faultline-preview", "scheme":"faultline-preview", "plugins":["expo-router"], "platforms":["ios","android","web"] } }
