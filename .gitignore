@@ -1,15 +1,21 @@
-# Dependencies and package-manager state
+# Dependencies and package-manager caches
 node_modules/
 **/node_modules/
 .npm/
 .pnpm-store/
+.yarn/
+.pnp.*
 
-# Build and test outputs
+# Build, test, and tool outputs
 dist/
 **/dist/
+build/
 coverage/
 .cache/
+.turbo/
+.vite/
 *.tsbuildinfo
+*.lcov
 
 # Environment and credentials
 .env
@@ -18,24 +24,48 @@ coverage/
 *.pem
 *.key
 *.crt
+*.p12
+*.pfx
 
-# Local application state
+# Local Faultline state and generated workspaces
 .workspaces/
 **/.workspaces/
-apps/preview/.expo/
-apps/preview/web-build/
+data/
+tmp/
 
-# Self-hosted SigNoz runtime/downloads
+# Expo and React Native local output
+.expo/
+**/.expo/
+.expo-shared/
+**/.expo-shared/
+apps/preview/web-build/
+apps/preview/.metro-health-check*
+
+# Self-hosted SigNoz runtime and downloaded upstream source
 infra/signoz/upstream/
 infra/signoz/data/
 infra/signoz/volumes/
+infra/signoz/clickhouse/
+infra/signoz/zookeeper/
 
-# Logs, OS, and editor files
-*.log
-logs/
+# Local deployment and diagnostic files
+.vercel/
+.wrangler/
 .DS_Store
 Thumbs.db
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# IDE and operating-system files
 .idea/
 .vscode/
 *.swp
+*.swo
 *~
+
+# Local publishing drafts
+docs/faultline-technical-deep-dive.md
+docs/launch-posts.md
