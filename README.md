@@ -8,6 +8,8 @@ Instead of building another observability dashboard, Faultline helps an operator
 
 - Runs a real OpenAI-compatible workflow: **Planner -> Architecture -> Design system -> Primary screen -> Expo preview**.
 - Shows each agent as it works, including full system prompts, task prompts, model output, artifacts, retries, and timestamped execution events.
+- Recovers a failed or costly agent from the inspector: adjust its task prompt, model, and token budget, rerun only downstream work, and compare the recovered evidence with the source run.
+- Persists local investigation history and recovery lineage across runner restarts in an ignored `.faultline/runs.json` journal.
 - Creates an interactive Expo mobile preview with Home, Activity, Insights, and Profile views generated from the app brief.
 - Sends OpenTelemetry traces, structured logs, and metrics to **self-hosted SigNoz**.
 - Demonstrates an injected incident: a real model call is retried after an explicit timeout and the intentionally low token budget produces a recorded breach.
@@ -163,14 +165,16 @@ Each run emits:
 
 ```text
 POST /api/runs
+POST /api/runs/:runId/recoveries
 GET  /api/runs
 GET  /api/runs/:runId
 GET  /api/runs/:runId/agents/:agentId
+GET  /api/runs/:runId/comparison
 GET  /api/preview/:runId
 GET  /health
 ```
 
-The agent endpoint returns a complete investigation dossier: decision, full prompts, model output, artifacts, span references, execution events, and a maximum of three normalized SigNoz evidence capsules.
+The agent endpoint returns a complete investigation dossier: decision, full prompts, model output, artifacts, span references, execution events, a deterministic recommended action, and a maximum of three normalized SigNoz evidence capsules. Recovery runs retain immutable upstream artifacts, emit their own trace with source-run correlation, and expose a normalized evidence delta.
 
 ## Development
 

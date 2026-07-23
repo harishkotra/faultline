@@ -30,6 +30,7 @@ coverage/
 # Local Faultline state and generated workspaces
 .workspaces/
 **/.workspaces/
+.faultline/
 data/
 tmp/
 
@@ -69,3 +70,5 @@ pnpm-debug.log*
 # Local publishing drafts
 docs/faultline-technical-deep-dive.md
 docs/launch-posts.md
+docs/recovery-studio-follow-up.md
+docs/recovery-studio-social.md

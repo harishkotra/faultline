@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "concurrently -n bridge,runner,console,preview -c yellow,cyan,magenta,green \"npm run dev -w @faultline/bridge\" \"npm run dev -w @faultline/runner\" \"npm run dev -w @faultline/console\" \"npm run web -w @faultline/preview\"",
     "build": "npm run build -w @faultline/bridge && npm run build -w @faultline/runner && npm run build -w @faultline/console",
-    "test": "node --test tests/*.test.mjs",
+    "test": "npm run build -w @faultline/runner && node --test tests/*.test.mjs",
     "signoz:up": "docker compose -f infra/signoz/docker-compose.yaml up -d"
   },
   "devDependencies": {
